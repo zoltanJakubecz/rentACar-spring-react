@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CarRentApplication",
+            "request": "launch",
+            "mainClass": "com.jakuza.carrent.CarRentApplication",
+            "projectName": "carrent"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<carrent>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jakuza.carrent.DemoApplication",
+            "projectName": "carrent",
+            "args": ""
+        }
+    ]
+}

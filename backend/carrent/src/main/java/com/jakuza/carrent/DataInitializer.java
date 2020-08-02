@@ -18,7 +18,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Car car = Car.builder()
+        Car trabant = Car.builder()
             .brand("Trabant")
             .model("601")
             .regPlate("ZOZ-531")
@@ -26,7 +26,16 @@ public class DataInitializer implements CommandLineRunner {
             .added(LocalDateTime.now())
             .build();
 
-        carRepository.save(car);
+        Car bmw = Car.builder()
+            .brand("BMW")
+            .model("330i")
+            .regPlate("ZOL-531")
+            .active(true)
+            .added(LocalDateTime.now())
+            .build();
+
+        carRepository.save(trabant);
+        carRepository.save(bmw);
     }
     
 }

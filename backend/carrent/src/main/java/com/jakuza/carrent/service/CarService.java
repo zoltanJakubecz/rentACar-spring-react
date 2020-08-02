@@ -1,8 +1,10 @@
 package com.jakuza.carrent.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.jakuza.carrent.model.Car;
+import com.jakuza.carrent.model.DTO.CarDto;
 import com.jakuza.carrent.repository.CarRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +18,15 @@ public class CarService {
     public List<Car> getCars(){
         return carRepository.findAll();
     }
+
+	public Car addCar(CarDto car) {
+        Car newCar = Car.builder()
+            .brand(car.getBrand())
+            .model(car.getModel())
+            .regPlate(car.getRegPlate())
+            .added(LocalDateTime.now())
+            .build();
+        return carRepository.save(newCar);
+	}
 
 }

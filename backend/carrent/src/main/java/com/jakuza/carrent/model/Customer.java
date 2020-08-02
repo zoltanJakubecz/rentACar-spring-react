@@ -1,5 +1,8 @@
 package com.jakuza.carrent.model;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,16 +22,19 @@ public class Customer {
     
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
     
-    String firstName;
+    private String firstName;
     
-    String lastName;
+    private String lastName;
 
     @ManyToOne
-    Address address;
+    private Address address;
 
-    String eMail;
+    private String eMail;
     
-    String phoneNumber;
+    private String phoneNumber;
+
+    @Column(nullable = false)
+    private LocalDateTime added;
 }

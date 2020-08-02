@@ -10,8 +10,12 @@ import com.jakuza.carrent.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CarService {
+
     @Autowired
     CarRepository carRepository;
 
@@ -25,7 +29,9 @@ public class CarService {
             .model(car.getModel())
             .regPlate(car.getRegPlate())
             .added(LocalDateTime.now())
+            .active(true)
             .build();
+        log.info("New car added: " + newCar.toString());
         return carRepository.save(newCar);
 	}
 

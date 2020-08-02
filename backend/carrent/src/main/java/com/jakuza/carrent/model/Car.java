@@ -1,5 +1,8 @@
 package com.jakuza.carrent.model;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,11 +23,14 @@ public class Car {
     @GeneratedValue
     Long id;
     
-    String brand;
+    private String brand;
     
-    String model;
+    private String model;
     
-    String regPlate;
+    private String regPlate;
     
-    boolean active;
+    private boolean active;
+
+    private LocalDateTime added;
+    
 }

@@ -2,8 +2,8 @@ package com.jakuza.carrent.controller;
 
 import java.util.List;
 
-import com.jakuza.carrent.model.DTO.CarDto;
 import com.jakuza.carrent.model.Car;
+import com.jakuza.carrent.model.dto.CarDto;
 import com.jakuza.carrent.service.CarService;
 
 import org.springframework.beans.factory.annotation.Autowired;

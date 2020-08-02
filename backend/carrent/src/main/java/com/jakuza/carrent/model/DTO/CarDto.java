@@ -1,4 +1,4 @@
-package com.jakuza.carrent.model.DTO;
+package com.jakuza.carrent.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

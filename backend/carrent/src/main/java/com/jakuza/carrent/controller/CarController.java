@@ -8,6 +8,7 @@ import com.jakuza.carrent.service.CarService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +30,10 @@ public class CarController {
     @PostMapping
     public Car addCar(@RequestBody CarDto car){
         return carService.addCar(car);
+    }
+
+    @GetMapping("/{carId}")
+    public Car getCar(@PathVariable Long carId){
+        return carService.getCar(carId);
     }
 }

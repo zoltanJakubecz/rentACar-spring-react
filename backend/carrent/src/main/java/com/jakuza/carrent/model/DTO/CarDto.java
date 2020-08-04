@@ -1,5 +1,7 @@
 package com.jakuza.carrent.model.dto;
 
+import com.jakuza.carrent.model.Car;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +20,14 @@ public class CarDto {
     private String regPlate;
 
     private String image;
+
+    public static CarDto fromEntity(Car car){
+        return CarDto.builder()
+            .brand(car.getBrand())
+            .model(car.getModel())
+            .regPlate(car.getRegPlate())
+            .image(car.getImage())
+            .build();
+    }
     
 }

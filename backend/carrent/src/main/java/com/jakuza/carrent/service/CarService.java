@@ -2,6 +2,7 @@ package com.jakuza.carrent.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.jakuza.carrent.model.Car;
 import com.jakuza.carrent.model.dto.CarDto;
@@ -19,11 +20,13 @@ public class CarService {
     @Autowired
     CarRepository carRepository;
 
-    public List<Car> getCars(){
-        return carRepository.findAll();
+    public List<CarDto> getCars(){
+
+        return carRepository.findAll().stream().map(CarDto::fromEntity).collect(Collectors.toList());
     }
 
 	public Car addCar(CarDto car) {
+        
         Car newCar = Car.builder()
             .brand(car.getBrand())
             .model(car.getModel())
@@ -31,12 +34,18 @@ public class CarService {
             .added(LocalDateTime.now())
             .active(true)
             .build();
+        
         log.info("New car added: " + newCar.toString());
+        
         return carRepository.save(newCar);
 	}
 
-	public Car getCar(Long id) {
-		return carRepository.findById(id).orElse(null);
+	public CarDto getCar(Long id) {
+
+        return carRepository
+            .findById(id)
+            .map(CarDto::fromEntity)
+            .orElse(null);
 	}
 
 }

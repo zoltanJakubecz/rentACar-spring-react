@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CarDto {
 
+    private Long id;
+
     private String brand;
     
     private String model;
@@ -23,6 +25,7 @@ public class CarDto {
 
     public static CarDto fromEntity(Car car){
         return CarDto.builder()
+            .id(car.getId())
             .brand(car.getBrand())
             .model(car.getModel())
             .regPlate(car.getRegPlate())

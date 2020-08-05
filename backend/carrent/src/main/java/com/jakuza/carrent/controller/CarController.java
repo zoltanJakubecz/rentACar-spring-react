@@ -23,7 +23,7 @@ public class CarController {
 
 
     @GetMapping
-    public List<Car> getCars(){
+    public List<CarDto> getCars(){
         return carService.getCars();
     }
 
@@ -33,7 +33,7 @@ public class CarController {
     }
 
     @GetMapping("/{carId}")
-    public Car getCar(@PathVariable Long carId){
+    public CarDto getCar(@PathVariable Long carId){
         return carService.getCar(carId);
     }
 }

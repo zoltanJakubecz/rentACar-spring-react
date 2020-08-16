@@ -23,13 +23,17 @@ public class CarDto {
 
     private String image;
 
+    private boolean active;
+
     public static CarDto fromEntity(Car car){
+        
         return CarDto.builder()
             .id(car.getId())
             .brand(car.getBrand())
             .model(car.getModel())
             .regPlate(car.getRegPlate())
             .image(car.getImage())
+            .active(car.isActive())
             .build();
     }
     

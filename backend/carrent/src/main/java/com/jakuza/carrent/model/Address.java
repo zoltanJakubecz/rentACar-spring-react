@@ -28,7 +28,7 @@ public class Address {
     
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
     @Singular
-    List<Customer> customers = new ArrayList<>();
+    private final List<Customer> customers = new ArrayList<>();
     
     String street;
     String houseName;

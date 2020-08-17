@@ -8,6 +8,7 @@ import com.jakuza.carrent.model.Car;
 import com.jakuza.carrent.model.RentAppUser;
 import com.jakuza.carrent.repository.AddressRepository;
 import com.jakuza.carrent.repository.CarRepository;
+import com.jakuza.carrent.repository.RentAppUserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,6 +23,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Autowired
     private AddressRepository addressRepository;
+
+    @Autowired
+    private RentAppUserRepository cusRepo;
 
     @Override
     public void run(String... args) throws Exception {
@@ -52,14 +56,14 @@ public class DataInitializer implements CommandLineRunner {
                     .added(LocalDateTime.now())
                     .build();
 
-                    RentAppUser rentAppUser2 = RentAppUser.builder()
+        RentAppUser rentAppUser2 = RentAppUser.builder()
                     .firstName("Elemer")
                     .lastName("Lapos")
                     .phoneNumber("999-6666")
                     .added(LocalDateTime.now())
                     .build();
 
-                    Address address1 = Address.builder()
+        Address address1 = Address.builder()
                     .country("Hungary")
                     .city("Gyula")
                     .street("Ady")
@@ -69,8 +73,12 @@ public class DataInitializer implements CommandLineRunner {
 
         rentAppUser1.setAddress(address1);
         rentAppUser2.setAddress(address1);
+
+        
         
         addressRepository.save(address1);
+        cusRepo.save(rentAppUser1);
+        cusRepo.save(rentAppUser2);
 
     }
     

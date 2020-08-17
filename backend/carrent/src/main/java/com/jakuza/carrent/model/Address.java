@@ -22,15 +22,17 @@ public class Address {
 
     @Id
     @GeneratedValue
-    Long id;
-    String country;
-    String city;
+    private Long id;
+    private String country;
+    private String city;
     
     @Singular
-    @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "address")
     @EqualsAndHashCode.Exclude
     private Set<RentAppUser> rentAppUsers;
     
-    String street;
-    String houseName;
+    private String street;
+    private String houseName;
+    private String houseNumber;
+    private String zipCode;
 }

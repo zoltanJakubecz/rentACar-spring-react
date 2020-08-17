@@ -4,6 +4,6 @@ import com.jakuza.carrent.model.RentAppUser;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerRepository extends JpaRepository<RentAppUser, Long> {
+public interface RentAppUserRepository extends JpaRepository<RentAppUser, Long> {
     
 }

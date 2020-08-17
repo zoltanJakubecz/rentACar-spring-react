@@ -1,10 +1,12 @@
 package com.jakuza.carrent.model;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,5 +35,8 @@ public class Car {
     private boolean active;
 
     private LocalDateTime added;
+
+    @OneToMany(mappedBy = "car")
+    private Set<Rental> rentals;
     
 }

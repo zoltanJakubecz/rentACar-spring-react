@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,9 +25,11 @@ public class Rental {
     @GeneratedValue
     private Long id;
 
-    private Long carId;
+    @ManyToOne
+    private Car car;
     
-    private Long customerId;
+    @ManyToOne
+    private RentAppUser user;
 
     @Column(nullable = false)
     private LocalDateTime rentFrom;

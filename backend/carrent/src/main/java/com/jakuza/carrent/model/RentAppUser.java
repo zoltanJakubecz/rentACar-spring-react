@@ -21,7 +21,7 @@ import lombok.Singular;
 @AllArgsConstructor
 @Data
 @Builder
-public class Customer {
+public class RentAppUser {
     
     @Id
     @GeneratedValue

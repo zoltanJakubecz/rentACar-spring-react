@@ -29,7 +29,7 @@ public class Address {
     @Singular
     @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @EqualsAndHashCode.Exclude
-    private Set<Customer> customers;
+    private Set<RentAppUser> rentAppUsers;
     
     String street;
     String houseName;

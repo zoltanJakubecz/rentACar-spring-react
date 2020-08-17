@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 import com.jakuza.carrent.model.Address;
 import com.jakuza.carrent.model.Car;
-import com.jakuza.carrent.model.Customer;
+import com.jakuza.carrent.model.RentAppUser;
 import com.jakuza.carrent.repository.AddressRepository;
 import com.jakuza.carrent.repository.CarRepository;
 
@@ -45,14 +45,14 @@ public class DataInitializer implements CommandLineRunner {
         carRepository.save(trabant);
         carRepository.save(bmw);
 
-        Customer customer1 = Customer.builder()
+        RentAppUser rentAppUser1 = RentAppUser.builder()
                     .firstName("Zotyi")
                     .lastName("Motyi")
                     .phoneNumber("777-6666")
                     .added(LocalDateTime.now())
                     .build();
 
-                    Customer customer2 = Customer.builder()
+                    RentAppUser rentAppUser2 = RentAppUser.builder()
                     .firstName("Elemer")
                     .lastName("Lapos")
                     .phoneNumber("999-6666")
@@ -63,12 +63,12 @@ public class DataInitializer implements CommandLineRunner {
                     .country("Hungary")
                     .city("Gyula")
                     .street("Ady")
-                    .customer(customer1)
-                    .customer(customer2)
+                    .rentAppUser(rentAppUser1)
+                    .rentAppUser(rentAppUser2)
                     .build();
 
-        customer1.setAddress(address1);
-        customer2.setAddress(address1);
+        rentAppUser1.setAddress(address1);
+        rentAppUser2.setAddress(address1);
         
         addressRepository.save(address1);
 

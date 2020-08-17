@@ -1,8 +1,10 @@
 package com.jakuza.carrent.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Entity
 @NoArgsConstructor
@@ -33,7 +36,9 @@ public class Customer {
 
     private String eMail;
     
-    private String phoneNumber;
+    @ElementCollection
+    @Singular
+    private List<String> phoneNumbers;
 
     @Column(nullable = false)
     private LocalDateTime added;

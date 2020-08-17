@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Singular;
 
 @Entity
@@ -25,8 +26,9 @@ public class Address {
     String country;
     String city;
     
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
     @Singular
+    @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @EqualsAndHashCode.Exclude
     private Set<Customer> customers;
     
     String street;

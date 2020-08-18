@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
 
@@ -37,8 +38,9 @@ public class Car {
 
     private LocalDateTime added;
 
-    @OneToMany(mappedBy = "car")
     @Singular
+    @OneToMany(mappedBy = "car")
+    @EqualsAndHashCode.Exclude
     private Set<Rental> rentals;
     
 }

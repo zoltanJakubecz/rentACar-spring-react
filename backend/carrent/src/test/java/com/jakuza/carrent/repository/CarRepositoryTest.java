@@ -23,7 +23,7 @@ public class CarRepositoryTest {
     @BeforeEach
     public void init(){
 
-        Car car1 = carRepository.save(Car.builder()
+        carRepository.save(Car.builder()
             .brand("Trabant")
             .model("601")
             .regPlate("ZOZ-531")
@@ -31,7 +31,7 @@ public class CarRepositoryTest {
             .added(LocalDateTime.now())
             .build());
 
-        Car car2 = carRepository.save(Car.builder()
+        carRepository.save(Car.builder()
             .brand("NSU")
             .model("601")
             .regPlate("ZOZ-531")
@@ -39,7 +39,7 @@ public class CarRepositoryTest {
             .added(LocalDateTime.now())
             .build());
 
-        Car car3 = carRepository.save(Car.builder()
+        carRepository.save(Car.builder()
             .brand("BMW")
             .model("601")
             .regPlate("ZOZ-531")

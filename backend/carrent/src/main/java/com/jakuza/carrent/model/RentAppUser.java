@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Singular;
 
@@ -36,8 +37,9 @@ public class RentAppUser {
     @ManyToOne
     private Address address;
 
-    @OneToMany(mappedBy = "user")
     @Singular
+    @OneToMany(mappedBy = "user")
+    @EqualsAndHashCode.Exclude
     private Set<Rental> rentals;
 
     private String eMail;

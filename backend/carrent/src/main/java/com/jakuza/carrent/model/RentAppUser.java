@@ -37,6 +37,7 @@ public class RentAppUser {
     private Address address;
 
     @OneToMany(mappedBy = "user")
+    @Singular
     private Set<Rental> rentals;
 
     private String eMail;

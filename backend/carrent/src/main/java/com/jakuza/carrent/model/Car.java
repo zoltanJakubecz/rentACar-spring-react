@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Entity
 @NoArgsConstructor
@@ -37,6 +38,7 @@ public class Car {
     private LocalDateTime added;
 
     @OneToMany(mappedBy = "car")
+    @Singular
     private Set<Rental> rentals;
     
 }

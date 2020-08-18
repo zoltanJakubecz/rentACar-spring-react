@@ -37,7 +37,6 @@ public class Rental {
     @Column(nullable = false)
     private LocalDateTime rentTo;
 
-    @Column
     private LocalDateTime added;
     
     

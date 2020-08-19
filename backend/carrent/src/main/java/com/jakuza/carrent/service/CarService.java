@@ -48,4 +48,16 @@ public class CarService {
             .orElse(null);
 	}
 
+	public CarDto updateCar(Long carId, CarDto car) {
+        Car toUpdate = carRepository.findById(carId).orElse(null);
+        if(toUpdate == null) return null;
+        toUpdate.setBrand(car.getBrand());
+        toUpdate.setModel(car.getModel());
+        toUpdate.setRegPlate(car.getRegPlate());
+        toUpdate.setImage(car.getImage());
+        toUpdate.setActive(car.isActive());
+        
+		return CarDto.fromEntity(toUpdate);
+	}
+
 }

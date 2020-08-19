@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import com.jakuza.carrent.model.Car;
 import com.jakuza.carrent.model.dto.CarDto;
 import com.jakuza.carrent.repository.CarRepository;
@@ -48,7 +50,8 @@ public class CarService {
             .orElse(null);
 	}
 
-	public CarDto updateCar(Long carId, CarDto car) {
+    @Transactional
+    public CarDto updateCar(Long carId, CarDto car) {
         Car toUpdate = carRepository.findById(carId).orElse(null);
         if(toUpdate == null) return null;
         toUpdate.setBrand(car.getBrand());

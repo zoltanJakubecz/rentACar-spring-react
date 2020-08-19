@@ -98,6 +98,7 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
 
         rentRepo.save(rent);
+        log.info(rent.toString());
 
 
     }

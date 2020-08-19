@@ -38,9 +38,6 @@ public class Car {
 
     private LocalDateTime added;
 
-    @Singular
-    @OneToMany(mappedBy = "car")
-    @EqualsAndHashCode.Exclude
-    private Set<Rental> rentals;
+
     
 }

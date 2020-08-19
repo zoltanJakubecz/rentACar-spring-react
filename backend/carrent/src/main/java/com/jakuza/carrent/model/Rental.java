@@ -25,11 +25,9 @@ public class Rental {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    private Car car;
+    private Long car_id;
     
-    @ManyToOne
-    private RentAppUser user;
+    private Long user_id;
 
     @Column(nullable = false)
     private LocalDateTime rentFrom;

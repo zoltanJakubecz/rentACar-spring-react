@@ -37,10 +37,6 @@ public class RentAppUser {
     @ManyToOne
     private Address address;
 
-    @Singular
-    @OneToMany(mappedBy = "user")
-    @EqualsAndHashCode.Exclude
-    private Set<Rental> rentals;
 
     private String eMail;
     

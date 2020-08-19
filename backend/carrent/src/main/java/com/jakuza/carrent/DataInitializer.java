@@ -6,15 +6,20 @@ import java.time.LocalDateTime;
 import com.jakuza.carrent.model.Address;
 import com.jakuza.carrent.model.Car;
 import com.jakuza.carrent.model.RentAppUser;
+import com.jakuza.carrent.model.Rental;
 import com.jakuza.carrent.repository.AddressRepository;
 import com.jakuza.carrent.repository.CarRepository;
 import com.jakuza.carrent.repository.RentAppUserRepository;
+import com.jakuza.carrent.repository.RentalReposirory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class DataInitializer implements CommandLineRunner {
 
     @Autowired
@@ -26,6 +31,9 @@ public class DataInitializer implements CommandLineRunner {
 
     @Autowired
     private RentAppUserRepository cusRepo;
+
+    @Autowired
+    private RentalReposirory rentRepo;
 
     @Override
     public void run(String... args) throws Exception {
@@ -47,7 +55,7 @@ public class DataInitializer implements CommandLineRunner {
             .build();
 
         carRepository.save(trabant);
-        carRepository.save(bmw);
+        bmw = carRepository.save(bmw);
 
         RentAppUser rentAppUser1 = RentAppUser.builder()
                     .firstName("Zotyi")
@@ -79,6 +87,18 @@ public class DataInitializer implements CommandLineRunner {
         addressRepository.save(address1);
         cusRepo.save(rentAppUser1);
         cusRepo.save(rentAppUser2);
+
+
+        Rental rent = Rental.builder()
+                .car_id(2L)
+                .user_id(4L)
+                .rentFrom(LocalDateTime.of(2020, 1, 18, 10, 0))
+                .rentTo(LocalDateTime.of(2020, 1, 19, 10, 0))
+                .added(LocalDateTime.now())
+                .build();
+
+        rentRepo.save(rent);
+
 
     }
     

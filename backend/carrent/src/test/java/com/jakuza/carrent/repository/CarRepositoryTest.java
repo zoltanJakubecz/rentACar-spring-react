@@ -55,4 +55,21 @@ public class CarRepositoryTest {
         assertThat(carRepository.findAll()).hasSize(3);
     }
 
+    @Test
+    public void saveNewCar(){
+        Car car1 = carRepository.save(
+                    Car.builder()
+                            .brand("Opel")
+                            .model("Mokka")
+                            .regPlate("PZS-078")
+                            .build()
+                    );   
+        assertThat(carRepository.findAll()).contains(car1);                        
+    }
+
+    @Test
+    public void getAllCars(){
+        assertThat(carRepository.findAll()).hasSize(3);
+    }
+
 }

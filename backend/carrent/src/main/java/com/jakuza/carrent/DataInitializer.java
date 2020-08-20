@@ -16,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
 
 @Component
-@Slf4j
 public class DataInitializer implements CommandLineRunner {
 
     @Autowired
@@ -58,26 +56,26 @@ public class DataInitializer implements CommandLineRunner {
         bmw = carRepository.save(bmw);
 
         RentAppUser rentAppUser1 = RentAppUser.builder()
-                    .firstName("Zotyi")
-                    .lastName("Motyi")
-                    .phoneNumber("777-6666")
-                    .added(LocalDateTime.now())
-                    .build();
+            .firstName("Zotyi")
+            .lastName("Motyi")
+            .phoneNumber("777-6666")
+            .added(LocalDateTime.now())
+            .build();
 
         RentAppUser rentAppUser2 = RentAppUser.builder()
-                    .firstName("Elemer")
-                    .lastName("Lapos")
-                    .phoneNumber("999-6666")
-                    .added(LocalDateTime.now())
-                    .build();
+            .firstName("Elemer")
+            .lastName("Lapos")
+            .phoneNumber("999-6666")
+            .added(LocalDateTime.now())
+            .build();
 
         Address address1 = Address.builder()
-                    .country("Hungary")
-                    .city("Gyula")
-                    .street("Ady")
-                    .rentAppUser(rentAppUser1)
-                    .rentAppUser(rentAppUser2)
-                    .build();
+            .country("Hungary")
+            .city("Gyula")
+            .street("Ady")
+            .rentAppUser(rentAppUser1)
+            .rentAppUser(rentAppUser2)
+            .build();
 
         rentAppUser1.setAddress(address1);
         rentAppUser2.setAddress(address1);
@@ -90,15 +88,14 @@ public class DataInitializer implements CommandLineRunner {
 
 
         Rental rent = Rental.builder()
-                .car_id(2L)
-                .user_id(4L)
-                .rentFrom(LocalDateTime.of(2020, 1, 18, 10, 0))
-                .rentTo(LocalDateTime.of(2020, 1, 19, 10, 0))
-                .added(LocalDateTime.now())
-                .build();
+            .car_id(2L)
+            .user_id(4L)
+            .rentFrom(LocalDateTime.of(2020, 1, 18, 10, 0))
+            .rentTo(LocalDateTime.of(2020, 1, 19, 10, 0))
+            .added(LocalDateTime.now())
+            .build();
 
         rentRepo.save(rent);
-        log.info(rent.toString());
 
 
     }

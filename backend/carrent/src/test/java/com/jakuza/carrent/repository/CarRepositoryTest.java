@@ -61,7 +61,7 @@ public class CarRepositoryTest {
                     Car.builder()
                             .brand("Opel")
                             .model("Mokka")
-                            .regPlate("PZS-078")
+                            .regPlate("PPP-999")
                             .build()
                     );   
         assertThat(carRepository.findAll()).contains(car1);                        
@@ -71,5 +71,7 @@ public class CarRepositoryTest {
     public void getAllCars(){
         assertThat(carRepository.findAll()).hasSize(3);
     }
+
+    
 
 }

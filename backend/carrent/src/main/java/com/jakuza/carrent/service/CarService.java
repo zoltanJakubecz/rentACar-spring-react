@@ -27,7 +27,7 @@ public class CarService {
         return carRepository.findAll().stream().map(CarDto::fromEntity).collect(Collectors.toList());
     }
 
-	public Car addCar(CarDto car) {
+	public CarDto addCar(CarDto car) {
         
         Car newCar = Car.builder()
             .brand(car.getBrand())
@@ -39,7 +39,8 @@ public class CarService {
         
         log.info("New car added: " + newCar.toString());
         
-        return carRepository.save(newCar);
+        
+        return CarDto.fromEntity(carRepository.save(newCar));
 	}
 
 	public CarDto getCar(Long id) {

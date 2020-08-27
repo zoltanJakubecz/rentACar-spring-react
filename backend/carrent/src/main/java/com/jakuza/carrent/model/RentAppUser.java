@@ -35,6 +35,8 @@ public class RentAppUser {
     @ManyToOne
     private Address address;
 
+    private String passwd;
+
     @Column(unique = true, nullable = false)
     private String email;
     

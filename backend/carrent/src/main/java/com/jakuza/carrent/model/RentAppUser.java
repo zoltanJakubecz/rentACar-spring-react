@@ -1,13 +1,15 @@
 package com.jakuza.carrent.model;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,12 +35,12 @@ public class RentAppUser {
     @ManyToOne
     private Address address;
 
-
-    private String eMail;
+    @Column(unique = true, nullable = false)
+    private String email;
     
     @ElementCollection
     @Singular
-    private List<String> phoneNumbers;
+    private Set<String> phoneNumbers;
 
     private LocalDateTime added;
 }

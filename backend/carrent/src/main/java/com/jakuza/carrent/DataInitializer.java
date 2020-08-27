@@ -53,18 +53,20 @@ public class DataInitializer implements CommandLineRunner {
             .build();
 
         carRepository.save(trabant);
-        bmw = carRepository.save(bmw);
+        carRepository.save(bmw);
 
         RentAppUser rentAppUser1 = RentAppUser.builder()
             .firstName("Zotyi")
             .lastName("Motyi")
             .phoneNumber("777-6666")
+            .email("kakadu@kukadu.com")
             .added(LocalDateTime.now())
             .build();
 
         RentAppUser rentAppUser2 = RentAppUser.builder()
             .firstName("Elemer")
             .lastName("Lapos")
+            .email("zulu@kakker.hu")
             .phoneNumber("999-6666")
             .added(LocalDateTime.now())
             .build();

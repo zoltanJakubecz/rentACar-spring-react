@@ -2,11 +2,9 @@ package com.jakuza.carrent.controller;
 
 import java.util.List;
 
-import com.jakuza.carrent.model.Car;
 import com.jakuza.carrent.model.dto.CarDto;
 import com.jakuza.carrent.service.CarService;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

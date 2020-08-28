@@ -27,7 +27,7 @@ public class RentAppUserDto {
     
     private Set<String> phoneNumbers;
 
-    public RentAppUserDto fromEntity(RentAppUser user){
+    public static RentAppUserDto fromEntity(RentAppUser user){
 
         return RentAppUserDto.builder()
                     .id(user.getId())
